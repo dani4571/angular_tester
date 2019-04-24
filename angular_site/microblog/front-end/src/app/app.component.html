@@ -1,8 +1,8 @@
 <h2>Log In</h2>
 <div class="row" *ngIf="!_userService.token">
   <div class="col-sm-4">
-    <label>Username:</label><br />
-    <input type="text" name="login-username" [(ngModel)]="user.username">
+    <label>Email:</label><br />
+    <input type="text" name="login-email" [(ngModel)]="user.email">
     <span *ngFor="let error of _userService.errors.username">
       <br />
       {{ error }}

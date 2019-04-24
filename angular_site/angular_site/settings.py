@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'authentication',
     'compressor',
     'microblog',
     'rest_framework'
@@ -96,12 +97,14 @@ WSGI_APPLICATION = 'angular_site.wsgi.application'
 
 # LDAP Auth
 # https://django-auth-ldap.readthedocs.io/en/latest/
-AUTHENTICATION_BACKENDS = [
+'''AUTHENTICATION_BACKENDS = [
     'django_auth_ldap.backend.LDAPBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-AUTH_LDAP_SERVER_URI = "ldap://ldap.example.com"
+AUTH_LDAP_SERVER_URI = "ldap://10.10.10.2"
+'''
+AUTH_USER_MODEL = 'authentication.Account'
 
 
 # Database

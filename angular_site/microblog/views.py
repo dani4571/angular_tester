@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+from authentication.models import Account as User
 from rest_framework import viewsets, permissions
 from .models import BlogPost
 from . import serializers

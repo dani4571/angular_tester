@@ -19,3 +19,15 @@ https://github.com/leavingonaspaceship/thinkster-django-angular-boilerplate
 `docker build --target prod_build -t angular_tester:prod .`
 ## Run
 `docker run -dti angular_tester:dev`
+
+
+
+
+https://material.angular.io/components/toolbar/examples
+https://material.angular.io/guide/getting-started
+https://material.angular.io/guide/getting-started#step-4-include-a-theme
+https://angular.io/tutorial/toh-pt0
+https://angular.io/resources
+https://getblimp.github.io/django-rest-framework-jwt/
+https://django-auth-ldap.readthedocs.io/en/latest/users.html
+https://github.com/osixia/docker-openldap
