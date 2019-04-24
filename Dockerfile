@@ -6,7 +6,7 @@ FROM python:3.7-alpine as alpine_custom
 COPY requirements.txt .
 RUN apk --update add npm mariadb-dev alpine-sdk  jpeg-dev git \
 	&& pip install -r requirements.txt \
-	&& npm install @angular/cli@next --global \
+	&& npm install @angular/cli@next @angular/material @angular/cdk @angular/animations --global \
 	&& apk del alpine-sdk \
 	&& addgroup -S sidewalkeggs && adduser -S -G sidewalkeggs sidewalkeggs \
 	&& mkdir -p /opt/src \
@@ -14,9 +14,10 @@ RUN apk --update add npm mariadb-dev alpine-sdk  jpeg-dev git \
 
 FROM alpine_custom as dev_build
 USER sidewalkeggs
-WORKDIR /opt/src
+WORKDIR /opt/src/angular_site
 VOLUME /opt/src
 
 FROM alpine_custom as prod_build
-WORKDIR /opt/src
+WORKDIR /opt/src/angular_site
 COPY . .
+ENTRYPOINT ["/bin/sh", "entrypoint.sh"]

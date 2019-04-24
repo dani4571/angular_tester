@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogPostService } from './blog_post.service';
 import { UserService } from './user.service';
 import { throwError } from 'rxjs';
 
@@ -14,9 +15,22 @@ export class AppComponent implements OnInit {
 	*/
 	public user: any;
 
-	constructor(private _userService: UserService) { }
+	/**
+	* An array of all the BlogPost objects from the API
+	*/
+	public posts;
+
+	/**
+	* An object representing the data in the "add" form
+	*/
+	public new_post: any;	
+
+
+	constructor(private _blogPostService: BlogPostService, private _userService: UserService) { }
 
 	ngOnInit() {
+		this.getPosts();
+		this.new_post = {};
 		this.user = {
 			username: '',
 			password: ''
@@ -33,6 +47,36 @@ export class AppComponent implements OnInit {
 
 	logout() {
 		this._userService.logout();
+	}
+
+	getPosts() {
+		this._blogPostService.list().subscribe(
+			// the first argument is a function which runs a success
+			data => {
+				this.posts = data;
+				for (let post of this.posts) {
+					post.date = new Date(post.date);
+				}
+			},
+			// second argument runs on error
+			err => console.error(err),
+			// third argument runs on completion
+			() => console.log('done loading posts')
+		);
+	}
+
+	createPost() {
+		this._blogPostService.create(this.new_post, this.user.token).subscribe(
+			data => {
+				// refresh the list
+				this.getPosts();
+				return true;
+			},
+			error => {
+				console.error('Error saving!');
+				return throwError(error);
+			}
+		);
 	}
 
 }

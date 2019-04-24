@@ -5,6 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserService } from './user.service';
+import { BlogPostService } from './blog_post.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule,MatTableModule } from  '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -14,9 +18,15 @@ import { UserService } from './user.service';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule
   ],
-  providers: [UserService],
+  providers: [UserService, BlogPostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

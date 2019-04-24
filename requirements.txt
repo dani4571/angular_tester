@@ -1,4 +1,7 @@
 Django
 django-angular
+django-auth-ldap
+django-compressor
+django-environ
 djangorestframework
 djangorestframework-jwt

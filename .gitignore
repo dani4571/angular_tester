@@ -102,3 +102,10 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# django/node stuff
+staticfiles
+rest_framework
+node_modules
+admin
+package-lock.json
