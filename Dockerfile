@@ -4,9 +4,9 @@
 
 FROM python:3.7-alpine as alpine_custom
 COPY requirements.txt .
-RUN apk --update add npm mariadb-dev alpine-sdk  jpeg-dev git \
+RUN apk --update add alpine-sdk git jpeg-dev mariadb-dev npm openldap-dev yarn \
 	&& pip install -r requirements.txt \
-	&& npm install @angular/cli@next @angular/material @angular/cdk @angular/animations --global \
+	&& npm install @angular/cli@next --global \
 	&& apk del alpine-sdk \
 	&& addgroup -S sidewalkeggs && adduser -S -G sidewalkeggs sidewalkeggs \
 	&& mkdir -p /opt/src \

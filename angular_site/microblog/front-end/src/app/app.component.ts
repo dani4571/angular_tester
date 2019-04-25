@@ -33,12 +33,13 @@ export class AppComponent implements OnInit {
 		this.new_post = {};
 		this.user = {
 			email: '',
+			username: '',
 			password: ''
 		};
 	}
 
 	login() {
-		this._userService.login({'email': this.user.username, 'password': this.user.password});
+		this._userService.login({'email': this.user.email, 'password': this.user.password});
 	}
 
 	refreshToken() {

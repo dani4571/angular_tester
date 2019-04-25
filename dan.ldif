@@ -1,0 +1,28 @@
+dn: ou=People,dc=example,dc=org
+ou: People
+objectClass: top
+objectClass: organizationalUnit
+description: Parent object of all UNIX accounts
+
+dn: ou=Groups,dc=example,dc=org
+ou: Groups
+objectClass: top
+objectClass: organizationalUnit
+description: Parent object of all UNIX groups
+
+dn: uid=dan,ou=People,dc=example,dc=org
+#objectClass: person
+#objectClass: cos
+objectClass: inetOrgPerson
+#objectClass: organizationalPerson
+objectClass: posixAccount
+objectClass: top
+cn: dan
+uid: dan
+sn: curran
+uidNumber: 100
+gidNumber: 101
+homeDirectory: /home/dan
+loginShell: /bin/bash
+userPassword: {crypt}password
+mail: dan@sidewalkeggs.com

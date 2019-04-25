@@ -49,7 +49,7 @@ class Account(AbstractUser):
   REQUIRED_FIELDS = ['username']
 
   def __unicode__(self):
-    return self.email
+    return self.username
 
   def get_full_name(self):
     return ' '.join([self.first_name, self.last_name])

@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
-import datetime, environ, os
+import datetime, environ, os, ldap
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication',
     'compressor',
+    'ldap',
     'microblog',
     'rest_framework'
 ]
@@ -97,13 +98,14 @@ WSGI_APPLICATION = 'angular_site.wsgi.application'
 
 # LDAP Auth
 # https://django-auth-ldap.readthedocs.io/en/latest/
-'''AUTHENTICATION_BACKENDS = [
+AUTHENTICATION_BACKENDS = [
     'django_auth_ldap.backend.LDAPBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
 
 AUTH_LDAP_SERVER_URI = "ldap://10.10.10.2"
-'''
+AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,ou=People,dc=example,dc=org"
+AUTH_LDAP_USER_ATTR_MAP = {"username": "uid", "first_name": "cn", "last_name": "sn", "email": "mail"}
 AUTH_USER_MODEL = 'authentication.Account'
 
 
