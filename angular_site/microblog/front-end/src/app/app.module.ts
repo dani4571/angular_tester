@@ -8,11 +8,13 @@ import { UserService } from './user.service';
 import { BlogPostService } from './blog_post.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule,MatTableModule } from  '@angular/material';
+import { PostsComponent } from './posts/posts.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
