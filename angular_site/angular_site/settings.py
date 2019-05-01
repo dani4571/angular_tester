@@ -103,11 +103,11 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-AUTH_LDAP_SERVER_URI = "ldap://10.10.10.2"
+AUTH_LDAP_BIND_AS_AUTHENTICATING_USER=True
+AUTH_LDAP_SERVER_URI = "ldap://10.10.10.1"
 AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,ou=People,dc=example,dc=org"
 AUTH_LDAP_USER_ATTR_MAP = {"username": "uid", "first_name": "cn", "last_name": "sn", "email": "mail"}
 AUTH_USER_MODEL = 'authentication.Account'
-
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

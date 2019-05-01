@@ -3,15 +3,15 @@ from django.db import models
 
 # Create your models here.
 class AccountManager(UserManager):
-  def create_user(self, email, password=None, **kwargs):
-    if not email:
-      raise ValueError('Users must have a valid email address.')
-
-    if not kwargs.get('username'):
+  def create_user(self, username, password=None, **kwargs):
+    if not username:
       raise ValueError('Users must have a valid username.')
 
+    if not kwargs.get('email'):
+      raise ValueError('Users must have a valid email address.')
+
     account = self.model(
-        email=self.normalize_email(email), username=kwargs.get('username')
+        username=username, email=self.normalize_email(kwargs.get('email'))
     )
 
     account.set_password(password)
@@ -19,8 +19,8 @@ class AccountManager(UserManager):
 
     return account
 
-  def create_superuser(self, email, password, **kwargs):
-    account = self.create_user(email, password, **kwargs)
+  def create_superuser(self, username, password, **kwargs):
+    account = self.create_user(username, password, **kwargs)
 
     account.is_admin = True
     account.is_staff = True
@@ -45,8 +45,8 @@ class Account(AbstractUser):
 
   objects = AccountManager()
 
-  USERNAME_FIELD = 'email'
-  REQUIRED_FIELDS = ['username']
+  USERNAME_FIELD = 'username'
+  REQUIRED_FIELDS = ['email']
 
   def __unicode__(self):
     return self.username
