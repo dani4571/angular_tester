@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+
+<nav>
+	<a routerLink="/home" routerLinkActive="active"> Go Home</a>
+	<br>
+	<a routerLink="/sports" routerLinkActive="active"> Sports</a>
+</nav>
+
+<router-outlet></router-outlet>
+<!--
+
+
+<app-percipio-exercise [button_text]="button_text" (click)="set_button()"></app-percipio-exercise>
+
+
+<app-vowel-picker letterColor="blue" (letterSelected)="letterSelected($event)"></app-vowel-picker>
+
+
+<br>
+<app-food></app-food>
+<app-animal *ngFor="let animal of animals" [the-animal]="animal" (statusUpdate)="handleStatusUpdate($event)"></app-animal>
+-->
+
+<app-q-dashboard-demo></app-q-dashboard-demo>

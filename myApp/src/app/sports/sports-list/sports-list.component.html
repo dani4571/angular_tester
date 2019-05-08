@@ -1,0 +1,8 @@
+<h2> Sports List </h2>
+
+<ul>
+	<li *ngFor="let s of sports">
+		<p>{{ s.name }}</p>
+		<button (click)="handleClick(s.name)">Find out more about {{ s.name }}</button>
+	</li>
+</ul>

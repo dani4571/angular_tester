@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css"></link>
+	<base href="/">
+</head>
+<body>
+	<app-vowel-picker letter-color="green"></app-vowel-picker>
+	<script type="text/javascript" src="vowelpicker.js"></script>
+	<script type="text/javascript">
+		const picker = document.querySelector('app-vowel-picker')
+
+		picker.addEventListener('letterSelected', (event) => {
+			console.log(`regular html app: a letter was selected: ${event.detail}`)
+		})
+
+	</script>
+</body>
+</html>

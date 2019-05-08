@@ -1,0 +1,26 @@
+<div>
+	<p>The food name is {{ food.name }}</p>
+	<p>Two {{ food.name }}s have {{ 2*food.calories }} calories</p>
+	<p>One {{ food.name }} has {{ getFat() }} grams of fat </p>
+	<img src="{{food.image}}" width="100" height="100">
+</div>
+
+<div>
+	<p [innerText]="food.name"> </p>
+	<p> Two {{ food.name }} have {{ 2*food.calories }} calories</p>
+	<p> One {{ food.name }} has {{ getFat() }} grams of fat</p>
+	<img [src]="food.image" width="100" height="100">
+</div>
+
+<br>
+<br>
+
+<div> <button disabled=" {{ isDisabled }} "> My Interpolated Button </button> </div>
+<div> <button [disabled]=" isDisabled "> My Property Binding Button </button> </div>
+
+<br>
+<br>
+
+<div><button [disabled]=" isDisabled " (click)="buttonClicked(1)"> My Button calling component method </button></div>
+<div><button [disabled]=" isDisabled " (click)="buttonClicked(1)"> My Button passing random data </button></div>
+<div><button [disabled]=" isDisabled " (click)="buttonClicked($event)"> My Button passing event </button></div>
